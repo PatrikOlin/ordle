@@ -1,0 +1,64 @@
+[10:49:00.407] Global cache location '/home/olin/.cache/typescript/4.6', safe file path '/home/olin/code/ordle/node_modules/typescript/lib/typingSafeList.json', types map path /home/olin/code/ordle/node_modules/typescript/lib/typesMap.json
+[10:49:00.408] Processing cache location '/home/olin/.cache/typescript/4.6'
+[10:49:00.408] Trying to find '/home/olin/.cache/typescript/4.6/package.json'...
+[10:49:00.408] Finished processing cache location '/home/olin/.cache/typescript/4.6'
+[10:49:00.408] Process id: 3042372
+[10:49:00.408] NPM location: /home/olin/.nvm/versions/node/v15.8.0/bin/npm (explicit '--npmLocation' not  provided)
+[10:49:00.408] validateDefaultNpmLocation: false
+[10:49:00.409] Npm config file: /home/olin/.cache/typescript/4.6/package.json
+[10:49:00.409] Npm config file: '/home/olin/.cache/typescript/4.6/package.json' is missing, creating new one...
+[10:49:00.409] Updating types-registry npm package...
+[10:49:00.409] Exec: /home/olin/.nvm/versions/node/v15.8.0/bin/npm install --ignore-scripts types-registry@latest
+[10:49:01.004]     Succeeded. stdout:
+    
+    added 1 package, and audited 2 packages in 503ms
+
+found 0 vulnerabilities
+
+[10:49:01.005] Updated types-registry npm package
+[10:49:01.895] Got install request {"projectName":"/dev/null/inferredProject1*","fileNames":["/home/olin/code/ordle/node_modules/typescript/lib/lib.es5.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2016.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.dom.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.dom.iterable.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.webworker.importscripts.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.scripthost.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.core.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.collection.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.generator.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.iterable.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.promise.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.proxy.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.reflect.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.symbol.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2016.array.include.d.ts","/home/olin/code/ordle/node_modules/typescript/lib/lib.es2016.full.d.ts","/home/olin/code/ordle/src/shared/api.js"],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true,"maxNodeModuleJsDepth":2},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/olin/code/ordle/src/shared","kind":"discover"}
+[10:49:01.921] Loaded safelist from types map file '/home/olin/code/ordle/node_modules/typescript/lib/typesMap.json'
+[10:49:01.922] Explicitly included types: []
+[10:49:01.922] Inferred typings from unresolved imports: []
+[10:49:01.923] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:49:01.923] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:49:01.923] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components
+[10:49:01.923] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[10:49:01.925] Elapsed:: 1.7919979095458984ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[10:49:01.925] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules
+[10:49:01.926] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[10:49:01.926] Elapsed:: 0.1194298267364502ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[10:49:01.926] Sending response:
+    {"projectName":"/dev/null/inferredProject1*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true,"maxNodeModuleJsDepth":2},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[10:49:01.926] Response has been sent.
+[10:49:01.926] No new typings were requested as a result of typings discovery
+[10:49:09.635] Got install request {"projectName":"/dev/null/inferredProject2*","fileNames":[],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/olin/code/ordle/src/shared","kind":"discover"}
+[10:49:09.635] Explicitly included types: []
+[10:49:09.635] Inferred typings from unresolved imports: []
+[10:49:09.635] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:49:09.635] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:49:09.635] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components
+[10:49:09.635] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject2* watcher already invoked: false
+[10:49:09.635] Elapsed:: 0.02751612663269043ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject2* watcher already invoked: false
+[10:49:09.636] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules
+[10:49:09.636] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject2* watcher already invoked: false
+[10:49:09.636] Elapsed:: 0.017590999603271484ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject2* watcher already invoked: false
+[10:49:09.636] Sending response:
+    {"projectName":"/dev/null/inferredProject2*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[10:49:09.636] Response has been sent.
+[10:49:09.636] No new typings were requested as a result of typings discovery
+[10:59:57.039] Got install request {"projectName":"/dev/null/inferredProject3*","fileNames":[],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/olin/code/ordle/src/shared","kind":"discover"}
+[10:59:57.040] Explicitly included types: []
+[10:59:57.040] Inferred typings from unresolved imports: []
+[10:59:57.040] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:59:57.040] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/olin/code/ordle/src/shared/bower_components","/home/olin/code/ordle/src/shared/node_modules"]}
+[10:59:57.041] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components
+[10:59:57.041] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject3* watcher already invoked: false
+[10:59:57.041] Elapsed:: 0.04448199272155762ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/bower_components 1 undefined Project: /dev/null/inferredProject3* watcher already invoked: false
+[10:59:57.041] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules
+[10:59:57.041] DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject3* watcher already invoked: false
+[10:59:57.042] Elapsed:: 0.05660104751586914ms DirectoryWatcher:: Added:: WatchInfo: /home/olin/code/ordle/src/shared/node_modules 1 undefined Project: /dev/null/inferredProject3* watcher already invoked: false
+[10:59:57.042] Sending response:
+    {"projectName":"/dev/null/inferredProject3*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[10:59:57.042] Response has been sent.
+[10:59:57.042] No new typings were requested as a result of typings discovery
