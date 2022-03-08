@@ -1,4 +1,4 @@
-import { writable, derived } from "svelte/store";
+import { get, writable, derived } from "svelte/store";
 import { getNewSession, guessWord } from "../shared/api";
 
 const initialState = {
@@ -23,10 +23,10 @@ function createState() {
         update((state) => (state = { ...state, isLoading: false }));
       }
     },
-    guessWord: async (guess, id) => {
+    guessWord: async (guess) => {
       update((state) => (state = { ...state, isLoading: true }));
       try {
-        const res = await guessWord(guess, id);
+        const res = await guessWord(guess, sessionId);
         update((state) => (state = { ...state, session: res }));
       } catch (e) {
         alert(e);
@@ -42,4 +42,9 @@ export const currentState = createState();
 export const getSession = derived(
   currentState,
   ($currentState) => $currentState.session
+);
+
+export const getSessionId = derived(
+  currentState,
+  ($currentState) => $currentState.session?.id
 );

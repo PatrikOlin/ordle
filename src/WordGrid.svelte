@@ -2,14 +2,13 @@
     import WordRow from "./WordRow.svelte";
 
     export let session: any;
-    let guesses = [];
 </script>
 
 <section>
-    {session}
     {#if session}
-        {#each { length: 6 } as _, i}
-            <WordRow word={guesses[i]} wordState={session.wordState} />
+        {#each {length: 6} as _, i}
+            {session.guesses[i]}
+            <WordRow guess={session.guesses[i]} />
         {/each}
     {/if}
 </section>

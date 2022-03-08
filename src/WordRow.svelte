@@ -1,24 +1,22 @@
 <script lang="ts">
-    export let word: string;
-    export let wordState: string[];
+    export let guess: { word: string; wordState: string };
 
     function getColor(index): string {
-        console.log(wordState[index]);
-        if (wordState[index] === ".") return "wrong";
-        if (wordState[index] === "G") return "correct";
-        if (wordState[index] === "Y") return "correctish";
+        console.log(guess.wordState[index]);
+        if (guess.wordState[index] === ".") return "wrong";
+        if (guess.wordState[index] === "G") return "correct";
+        if (guess.wordState[index] === "Y") return "correctish";
     }
 
     function getChar(index: number): string {
-        return word[index];
+        return guess.word[index];
     }
 </script>
 
 <main>
     <section class="row">
-        {word}
         {#each { length: 5 } as _, i}
-            {#if word}
+            {#if guess}
                 <div class={getColor(i)}>
                     {getChar(i)}
                 </div>
