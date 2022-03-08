@@ -5,13 +5,14 @@
     let guesses = [];
 </script>
 
-<main>
+<section>
+    {session}
     {#if session}
-        {#each guesses as word}
-            <WordRow {word} wordState={session.wordState} />
+        {#each { length: 6 } as _, i}
+            <WordRow word={guesses[i]} wordState={session.wordState} />
         {/each}
     {/if}
-</main>
+</section>
 
 <style>
     .row {
