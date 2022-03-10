@@ -42,14 +42,8 @@
 			keys.pop();
 			keys = keys;
 		}
-		if (
-			keys.length < 5 &&
-			key !== "Backspace" &&
-			key !== "Enter" &&
-			key != "Space"
-		) {
-			keys = [...keys, key];
-		}
+		if (keys.length >= 5) return;
+		if (key.length === 1 && key !== " ") keys = [...keys, key];
 
 		console.log(keys);
 		guess = keys.join("");
