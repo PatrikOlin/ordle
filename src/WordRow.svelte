@@ -1,5 +1,6 @@
 <script lang="ts">
     export let guess: { word: string; wordState: string };
+    export let keys: string[] = [];
 
     function getColor(index): string {
         console.log(guess.wordState[index]);
@@ -11,6 +12,12 @@
     function getChar(index: number): string {
         return guess.word[index];
     }
+
+    function getKey(index: number): string {
+        if (keys[index]) return keys[index];
+
+        return "";
+    }
 </script>
 
 <main>
@@ -21,7 +28,9 @@
                     {getChar(i)}
                 </div>
             {:else}
-                <div />
+                <div>
+                    {keys[i] ? keys[i] : ""}
+                </div>
             {/if}
         {/each}
     </section>

@@ -4,42 +4,64 @@
 	import { currentState, getSession, getSessionId } from "./shared/store";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
+	import Keyboard from "svelte-keyboard";
 
 	let session = null;
 	let wordStates: string[] = [];
-    let guesses = [];
+	let guesses = [];
 	let guess: string;
+	let keys = [];
 
 	onMount(async () => {
 		// currentState.newSession();
 		getNewSession()
-		.then((r) => r.json())
-		.then((s) => {
-			session = s;
-		});
+			.then((r) => r.json())
+			.then((s) => {
+				session = s;
+			});
 	});
 
 	function submit() {
 		// currentState.guessWord(guess, $getSessionId);
 		guessWord(guess, session.id)
-		.then((r) => r.json())
-		.then((s) => {
-			if (s) {
-				session = s;
-				guess = "";
-			}
-			console.log(session);
-			console.log(wordStates);
-		});
+			.then((r) => r.json())
+			.then((s) => {
+				if (s) {
+					session = s;
+					guess = "";
+					keys = [];
+				}
+				console.log(session);
+				console.log(wordStates);
+			});
 	}
+
+	const onKeydown = (key: string) => {
+		if (key === "Enter" && keys.length === 5) submit();
+		if (key === "Backspace") {
+			keys.pop();
+			keys = keys;
+		}
+		if (
+			keys.length < 6 &&
+			key !== "Backspace" &&
+			key !== "Enter" &&
+			key != "Space"
+		) {
+			keys = [...keys, key];
+		}
+
+		console.log(keys);
+		guess = keys.join("");
+	};
 </script>
 
-<Keydown on:Enter={(e) => submit()} />
+<Keydown on:key={({ detail }) => onKeydown(detail)} />
 
 <main>
 	<h1>Ordle</h1>
-	<WordGrid {session} />
-	<input bind:value={guess} />
+	<WordGrid {session} {keys} />
+	<Keyboard layout="wordle" />
 </main>
 
 <style>
@@ -54,6 +76,11 @@
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+	}
+
+	:global(.svelte-keyboard) {
+		width: 37rem;
+		margin: auto;
 	}
 
 	@media (min-width: 640px) {

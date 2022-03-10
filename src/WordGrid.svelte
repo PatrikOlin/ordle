@@ -2,28 +2,23 @@
     import WordRow from "./WordRow.svelte";
 
     export let session: any;
+    export let keys: string[];
 </script>
 
 <section>
     {#if session}
-        {#each {length: 6} as _, i}
-            {session.guesses[i]}
-            <WordRow guess={session.guesses[i]} />
+        {#each { length: 6 } as _, i}
+            {#if session.numberOfGuesses === i}
+                <WordRow guess={session.guesses[i]} {keys} />
+            {:else}
+                <WordRow guess={session.guesses[i]} />
+            {/if}
         {/each}
     {/if}
 </section>
 
 <style>
-    .row {
-        display: flex;
-        justify-content: center;
-    }
-    div {
-        min-width: 55px;
-        height: 55px;
-        background-color: lightgrey;
-        margin: 2px;
-        font-size: 40px;
-        text-transform: uppercase;
+    section {
+        margin-bottom: 4rem;
     }
 </style>
