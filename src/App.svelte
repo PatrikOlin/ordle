@@ -4,7 +4,8 @@
 	import { currentState, getSession, getSessionId } from "./shared/store";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
-	import Keyboard from "svelte-keyboard";
+ 	import Keyboard from "./Keyboard.svelte";
+ // import Keyboard from "svelte-keyboard";
 
 	let session = null;
 	let wordStates: string[] = [];
@@ -55,7 +56,8 @@
 <main>
 	<h1>Ordle</h1>
 	<WordGrid {session} {keys} />
-	<Keyboard layout="wordle" />
+	<!-- <Keyboard layout="wordle" /> -->
+	<Keyboard />
 </main>
 
 <style>
