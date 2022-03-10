@@ -43,7 +43,7 @@
 			keys = keys;
 		}
 		if (
-			keys.length < 6 &&
+			keys.length < 5 &&
 			key !== "Backspace" &&
 			key !== "Enter" &&
 			key != "Space"
