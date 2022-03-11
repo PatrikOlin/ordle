@@ -4676,3 +4676,53 @@ Info 4554 [06:14:45.284] FileWatcher:: Triggered with /home/olin/code/ordle/pack
 Info 4555 [06:14:45.285] Elapsed:: 0.6523838043212891ms FileWatcher:: Triggered with /home/olin/code/ordle/package.json 1:: WatchInfo: /home/olin/code/ordle/package.json 250 undefined WatchType: package.json file
 Info 4556 [06:14:49.287] FileWatcher:: Triggered with /home/olin/code/ordle/package.json 1:: WatchInfo: /home/olin/code/ordle/package.json 250 undefined WatchType: package.json file
 Info 4557 [06:14:49.288] Elapsed:: 0.36714601516723633ms FileWatcher:: Triggered with /home/olin/code/ordle/package.json 1:: WatchInfo: /home/olin/code/ordle/package.json 250 undefined WatchType: package.json file
+Info 4558 [06:36:37.900] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 0:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4559 [06:36:37.901] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/App.svelte
+Info 4560 [06:36:37.901] Elapsed:: 0.2801089286804199ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 0:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4561 [06:36:37.901] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 1:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4562 [06:36:37.901] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/App.svelte
+Info 4563 [06:36:37.901] Elapsed:: 0.1705341339111328ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 1:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4564 [06:36:37.901] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/Keyboard.svelte 2:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4565 [06:36:37.901] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/Keyboard.svelte
+Info 4566 [06:36:37.901] Elapsed:: 0.25735998153686523ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/Keyboard.svelte 2:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4567 [06:36:37.901] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/KeyboardKey.svelte 3:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4568 [06:36:37.902] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/KeyboardKey.svelte
+Info 4569 [06:36:37.902] Elapsed:: 0.19029617309570312ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/KeyboardKey.svelte 3:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4570 [06:36:37.902] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 4:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4571 [06:36:37.902] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/WordRow.svelte
+Info 4572 [06:36:37.902] Elapsed:: 0.2385859489440918ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 4:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4573 [06:36:37.902] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 5:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4574 [06:36:37.902] Project: /home/olin/code/ordle/tsconfig.json Detected file add/remove of non supported extension: /home/olin/code/ordle/src/WordRow.svelte
+Info 4575 [06:36:37.902] Elapsed:: 0.22453927993774414ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 5:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4576 [06:36:37.903] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/keys.ts 6:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4577 [06:36:37.903] Elapsed:: 0.6147251129150391ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/keys.ts 6:: WatchInfo: /home/olin/code/ordle/src 1 undefined Config: /home/olin/code/ordle/tsconfig.json WatchType: Wild card directory
+Info 4578 [06:36:37.903] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 0:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4579 [06:36:37.904] Elapsed:: 0.14334821701049805ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 0:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4580 [06:36:37.904] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 1:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4581 [06:36:37.904] Elapsed:: 0.1336808204650879ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/App.svelte 1:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4582 [06:36:37.904] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/Keyboard.svelte 2:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4583 [06:36:37.904] Elapsed:: 0.14799976348876953ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/Keyboard.svelte 2:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4584 [06:36:37.904] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/KeyboardKey.svelte 3:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4585 [06:36:37.904] Elapsed:: 0.09392499923706055ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/KeyboardKey.svelte 3:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4586 [06:36:37.904] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 4:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4587 [06:36:37.904] Elapsed:: 0.08518505096435547ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 4:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4588 [06:36:37.905] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 5:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4589 [06:36:37.905] Elapsed:: 0.07687807083129883ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/WordRow.svelte 5:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4590 [06:36:37.905] DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/keys.ts 6:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4591 [06:36:37.905] Elapsed:: 0.5323233604431152ms DirectoryWatcher:: Triggered with /home/olin/code/ordle/src/keys.ts 6:: WatchInfo: /home/olin/code/ordle/src 1 undefined Project: /home/olin/code/ordle/tsconfig.json WatchType: Failed Lookup Locations
+Info 4592 [06:36:38.169] Starting updateGraphWorker: Project: /home/olin/code/ordle/tsconfig.json
+Info 4593 [06:36:38.218] Finishing updateGraphWorker: Project: /home/olin/code/ordle/tsconfig.json Version: 1118 structureChanged: true structureIsReused:: Not Elapsed: 49.261258125305176ms
+Info 4594 [06:36:38.218] Project '/home/olin/code/ordle/tsconfig.json' (Configured)
+Info 4595 [06:36:38.218] 	Files (126)
+
+Info 4596 [06:36:38.218] -----------------------------------------------
+Info 4597 [06:36:40.403] Before ensureProjectForOpenFiles:
+Info 4598 [06:36:40.403] After ensureProjectForOpenFiles:
+Info 4599 [06:36:40.403] got projects updated in background, updating diagnostics for /home/olin/code/ordle/src/shared/api.js,/home/olin/code/ordle/src/shared/api.ts,/home/olin/code/ordle/src/main.ts,/home/olin/code/ordle/src/shared/store.ts
+Info 4600 [07:51:54.817] Search path: /home/olin/code/ordle/src
+Info 4601 [07:51:54.818] For info: /home/olin/code/ordle/src/keys.ts :: Config file name: /home/olin/code/ordle/tsconfig.json
+Info 4602 [07:51:54.818] `remove Project::
+Info 4603 [07:51:54.818] Project '/dev/null/inferredProject3*' (Inferred)
+Info 4604 [07:51:54.818] 	Files (0)
+
+Info 4605 [07:51:54.818] -----------------------------------------------

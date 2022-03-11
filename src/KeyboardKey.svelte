@@ -1,10 +1,13 @@
 <script lang="ts">
     export let key: { key: string; row: number };
+    export let pressed;
+    export let state;
 </script>
 
 <main>
-    <div>
-        <button class="keyboard-key">{key.key} </button>
+    {state}
+    <div class:pressed={pressed === key.key}>
+        <button class="keyboard-key">{key.key}</button>
     </div>
 </main>
 
@@ -17,5 +20,9 @@
         cursor: pointer;
         text-transform: uppercase;
         min-width: 3rem;
+    }
+
+    .pressed button {
+        background-color: darkgrey;
     }
 </style>

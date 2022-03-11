@@ -4,14 +4,16 @@
 	import { currentState, getSession, getSessionId } from "./shared/store";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
- 	import Keyboard from "./Keyboard.svelte";
- // import Keyboard from "svelte-keyboard";
+	import Keyboard from "./Keyboard.svelte";
+	// import Keyboard from "svelte-keyboard";
 
 	let session = null;
 	let wordStates: string[] = [];
 	let guesses = [];
 	let guess: string;
 	let keys = [];
+	let keyDown;
+	let keyState = [];
 
 	onMount(async () => {
 		// currentState.newSession();
@@ -29,6 +31,7 @@
 			.then((s) => {
 				if (s) {
 					session = s;
+					createKeystate(s.guesses[s.guesses.length - 1]);
 					guess = "";
 					keys = [];
 				}
@@ -37,7 +40,20 @@
 			});
 	}
 
+	function createKeystate({ word, wordState }) {
+		word = word.split("");
+		wordState = wordState.split("");
+		keyState = word.map((key, i) => {
+			return {
+				key: key,
+				value: wordState[i],
+			};
+		});
+	}
+
 	const onKeydown = (key: string) => {
+		console.log(key);
+		keyDown = key;
 		if (key === "Enter" && keys.length === 5) submit();
 		if (key === "Backspace") {
 			keys.pop();
@@ -57,7 +73,7 @@
 	<h1>Ordle</h1>
 	<WordGrid {session} {keys} />
 	<!-- <Keyboard layout="wordle" /> -->
-	<Keyboard />
+	<Keyboard {keyDown} {keyState} />
 </main>
 
 <style>
