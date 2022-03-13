@@ -77,6 +77,18 @@
 </main>
 
 <style>
+
+ 	:root {
+		--green: #43AA8B;
+		--yellow: #D99A08;
+		--bg: #201E1F;
+		--white: #FAF5F0;
+	}
+
+ 	:global(body) {
+		background-color: var(--bg);
+	}
+
 	main {
 		text-align: center;
 		padding: 1em;
@@ -99,6 +111,23 @@
 		main {
 			max-width: none;
 		}
+	}
+
+    :global(button.correct, section div.correct) {
+        background-color: var(--green);
+    }
+
+    :global(button.correctish, section div.correctish) {
+        background-color: var(--yellow);
+    }
+
+    :global(button.wrong, section div.wrong) {
+        background-color: #3a3a3c;
+    }
+
+ 	:global(button) {
+        background-color: #818384;
+        color: var(--white);
 	}
 
 </style>
