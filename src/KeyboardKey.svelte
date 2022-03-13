@@ -2,12 +2,19 @@
     export let key: { key: string; row: number };
     export let pressed;
     export let state;
+
+    function getColor({ _key, value }): string {
+        if (value === ".") return "wrong";
+        if (value === "G") return "correct";
+        if (value === "Y") return "correctish";
+    }
 </script>
 
 <main>
-    {state}
     <div class:pressed={pressed === key.key}>
-        <button class="keyboard-key">{key.key}</button>
+        <button class="{state ? getColor(state) : ''} keyboard-key"
+            >{key.key}</button
+        >
     </div>
 </main>
 
@@ -23,6 +30,18 @@
     }
 
     .pressed button {
+        background-color: lightgrey;
+    }
+
+    .correct {
+        background-color: green;
+    }
+
+    .correctish {
+        background-color: yellow;
+    }
+
+    .wrong {
         background-color: darkgrey;
     }
 </style>

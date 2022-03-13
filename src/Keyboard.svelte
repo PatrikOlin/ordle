@@ -17,7 +17,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
-                state={keyState.filter((ks) => ks.key === key.key)}
+                state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
     </div>
@@ -26,7 +26,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
-                state={keyState.filter((ks) => ks.key === key.key)}
+                state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
     </div>
@@ -35,7 +35,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
-                state={keyState.filter((ks) => ks.key === key.key)}
+                state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
     </div>

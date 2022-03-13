@@ -44,7 +44,6 @@
         margin: 2px;
         font-size: 40px;
         text-transform: uppercase;
-        animation: pulse 0.5s 1;
     }
 
     .correct {
