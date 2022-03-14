@@ -18,11 +18,11 @@
         {#each { length: 5 } as _, i}
             {#if guess}
                 <div class="inactive {getColor(i)}">
-                    {getChar(i)}
+                    <span class="letter">{getChar(i)}</span>
                 </div>
             {:else}
                 <div class={!!keys[i] ? "hasLetter" : ""}>
-                    {keys[i] ? keys[i] : ""}
+                    <span>{keys[i] ? keys[i] : ""}</span>
                 </div>
             {/if}
         {/each}
@@ -30,6 +30,18 @@
 </main>
 
 <style>
+    div {
+        min-width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background-color: transparent;
+        border: 2px solid darkgrey;
+        margin: 2px;
+        font-size: 35px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
     .row {
         display: flex;
         justify-content: center;
@@ -41,15 +53,8 @@
         border: 2px solid transparent;
     }
 
-    div {
-        min-width: 55px;
-        height: 55px;
-        background-color: transparent;
-        border: 2px solid darkgrey;
-        margin: 2px;
-        font-size: 40px;
-        text-transform: uppercase;
-        font-weight: 700;
+    .letter {
+        align-self: center;
     }
 
     .hasLetter {

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, getContext } from "svelte";
 	import { getNewSession, guessWord } from "./shared/api";
-	import { currentState, getSession, getSessionId } from "./shared/store";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
 	import Keyboard from "./Keyboard.svelte";
-	// import Keyboard from "svelte-keyboard";
+	import WinScreen from "./WinScreen.svelte";
+ 	import Modal, {getModal} from './Modal.svelte';
 
 	let session = null;
 	let wordStates: string[] = [];
@@ -15,17 +15,17 @@
 	let keyDown;
 	let keyState = [];
 
+
 	onMount(async () => {
-		// currentState.newSession();
 		getNewSession()
 			.then((r) => r.json())
 			.then((s) => {
 				session = s;
+				console.log(s)
 			});
 	});
 
 	function submit() {
-		// currentState.guessWord(guess, $getSessionId);
 		guessWord(guess, session.id)
 			.then((r) => r.json())
 			.then((s) => {
@@ -34,9 +34,8 @@
 					createKeystate(s.guesses[s.guesses.length - 1]);
 					guess = "";
 					keys = [];
+					if (s.status === 'solved') getModal().open()
 				}
-				console.log(session);
-				console.log(wordStates);
 			});
 	}
 
@@ -52,7 +51,6 @@
 	}
 
 	const onKeydown = (key: string) => {
-		console.log(key);
 		keyDown = key;
 		if (key === "Enter" && keys.length === 5) submit();
 		if (key === "Backspace") {
@@ -62,7 +60,6 @@
 		if (keys.length >= 5) return;
 		if (key.length === 1 && key !== " ") keys = [...keys, key];
 
-		console.log(keys);
 		guess = keys.join("");
 	};
 </script>
@@ -72,8 +69,8 @@
 <main>
 	<h1>Ordle</h1>
 	<WordGrid {session} {keys} />
-	<!-- <Keyboard layout="wordle" /> -->
 	<Keyboard {keyDown} {keyState} />
+	<Modal>A winner is you</Modal>
 </main>
 
 <style>

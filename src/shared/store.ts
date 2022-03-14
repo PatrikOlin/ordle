@@ -26,7 +26,7 @@ function createState() {
     guessWord: async (guess) => {
       update((state) => (state = { ...state, isLoading: true }));
       try {
-        const res = await guessWord(guess, sessionId);
+        const res = await guessWord(guess, null);
         update((state) => (state = { ...state, session: res }));
       } catch (e) {
         alert(e);
