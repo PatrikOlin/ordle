@@ -4,8 +4,8 @@
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
 	import Keyboard from "./Keyboard.svelte";
-	import WinScreen from "./WinScreen.svelte";
- 	import Modal, {getModal} from './Modal.svelte';
+	import EndScreen from "./EndScreen.svelte";
+	import Modal, { getModal } from "./Modal.svelte";
 
 	let session = null;
 	let wordStates: string[] = [];
@@ -15,13 +15,12 @@
 	let keyDown;
 	let keyState = [];
 
-
 	onMount(async () => {
 		getNewSession()
 			.then((r) => r.json())
 			.then((s) => {
 				session = s;
-				console.log(s)
+				console.log(s);
 			});
 	});
 
@@ -34,7 +33,9 @@
 					createKeystate(s.guesses[s.guesses.length - 1]);
 					guess = "";
 					keys = [];
-					if (s.status === 'solved') getModal().open()
+					if (s.status === "solved" || s.numberOfGuesses === 6) {
+						getModal().open();
+					}
 				}
 			});
 	}
@@ -70,19 +71,18 @@
 	<h1>Ordle</h1>
 	<WordGrid {session} {keys} />
 	<Keyboard {keyDown} {keyState} />
-	<Modal>A winner is you</Modal>
+	<Modal><EndScreen {session} /></Modal>
 </main>
 
 <style>
-
- 	:root {
-		--green: #43AA8B;
-		--yellow: #D99A08;
-		--bg: #201E1F;
-		--white: #FAF5F0;
+	:root {
+		--green: #43aa8b;
+		--yellow: #d99a08;
+		--bg: #201e1f;
+		--white: #faf5f0;
 	}
 
- 	:global(body) {
+	:global(body) {
 		background-color: var(--bg);
 	}
 
@@ -110,21 +110,20 @@
 		}
 	}
 
-    :global(button.correct, section div.correct) {
-        background-color: var(--green);
-    }
-
-    :global(button.correctish, section div.correctish) {
-        background-color: var(--yellow);
-    }
-
-    :global(button.wrong, section div.wrong) {
-        background-color: #3a3a3c;
-    }
-
- 	:global(button) {
-        background-color: #818384;
-        color: var(--white);
+	:global(button.correct, section div.correct) {
+		background-color: var(--green);
 	}
 
+	:global(button.correctish, section div.correctish) {
+		background-color: var(--yellow);
+	}
+
+	:global(button.wrong, section div.wrong) {
+		background-color: #3a3a3c;
+	}
+
+	:global(button) {
+		background-color: #818384;
+		color: var(--white);
+	}
 </style>
