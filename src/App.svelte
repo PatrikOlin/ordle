@@ -63,6 +63,10 @@
 
 		guess = keys.join("");
 	};
+
+	const handleKeyClick = ({ detail }) => {
+		onKeydown(detail);
+	};
 </script>
 
 <Keydown on:key={({ detail }) => onKeydown(detail)} />
@@ -70,7 +74,7 @@
 <main>
 	<h1>Ordle</h1>
 	<WordGrid {session} {keys} />
-	<Keyboard {keyDown} {keyState} />
+	<Keyboard {keyDown} {keyState} on:keyClick={handleKeyClick} />
 	<Modal><EndScreen {session} /></Modal>
 </main>
 

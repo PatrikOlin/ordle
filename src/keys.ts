@@ -116,7 +116,7 @@ export const keys = [
     row: 2,
   },
   {
-    key: "backspace",
+    key: "⌫",
     row: 2,
   },
   {

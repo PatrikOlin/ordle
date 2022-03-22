@@ -1,14 +1,20 @@
 <script lang="ts">
     import { keys } from "./keys";
     import KeyboardKey from "./KeyboardKey.svelte";
+    import { createEventDispatcher } from "svelte";
 
     export let keyDown = null;
     export let keyState;
     let pressed;
+    const dispatch = createEventDispatcher();
 
     $: if (keyDown && keyDown.toLowerCase() !== pressed) {
         pressed = keyDown.toLowerCase();
     }
+
+    const handleEvent = (e) => {
+        dispatch("keyClick", e.detail);
+    };
 </script>
 
 <main class="keyboard">
@@ -17,6 +23,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
+                on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
@@ -26,6 +33,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
+                on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
@@ -35,6 +43,7 @@
             <KeyboardKey
                 {key}
                 {pressed}
+                on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
         {/each}
@@ -48,6 +57,12 @@
         flex-direction: column;
         align-items: center;
         width: 40rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .keyboard {
+            width: 85vw;
+        }
     }
 
     .row {
