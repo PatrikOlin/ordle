@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, getContext } from "svelte";
+	import { onMount } from "svelte";
 	import { getNewSession, guessWord } from "./shared/api";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
@@ -8,8 +8,6 @@
 	import Modal, { getModal } from "./Modal.svelte";
 
 	let session = null;
-	let wordStates: string[] = [];
-	let guesses = [];
 	let guess: string;
 	let keys = [];
 	let keyDown;
@@ -20,7 +18,6 @@
 			.then((r) => r.json())
 			.then((s) => {
 				session = s;
-				console.log(s);
 			});
 	});
 
@@ -53,8 +50,8 @@
 
 	const onKeydown = (key: string) => {
 		keyDown = key;
-		if (key === "Enter" && keys.length === 5) submit();
-		if (key === "Backspace") {
+		if (key.toLowerCase() === "enter" && keys.length === 5) submit();
+		if (key.toLowerCase() === "backspace") {
 			keys.pop();
 			keys = keys;
 		}
@@ -84,10 +81,12 @@
 		--yellow: #d99a08;
 		--bg: #201e1f;
 		--white: #faf5f0;
+		--red: #ff3e00;
 	}
 
 	:global(body) {
 		background-color: var(--bg);
+		font-family: "Work Sans", sans-serif;
 	}
 
 	main {
@@ -96,11 +95,15 @@
 		margin: 0 auto;
 	}
 
+	#modal {
+		background-color: var(--bg);
+	}
+
 	h1 {
-		color: #ff3e00;
+		color: var(--red);
 		text-transform: uppercase;
 		font-size: 4em;
-		font-weight: 100;
+		font-weight: 200;
 	}
 
 	:global(.svelte-keyboard) {

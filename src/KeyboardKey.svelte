@@ -1,7 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
 
-    export let key: { key: string; row: number };
+    export let key: { key: string; displayKey: string; row: number };
     export let pressed;
     export let state;
 
@@ -18,10 +18,10 @@
     };
 </script>
 
-<main on:click|once={handleClick}>
+<main on:click={handleClick}>
     <div class:pressed={pressed === key.key}>
         <button class="keyboardKey {state ? getColor(state) : ''} "
-            >{key.key}</button
+            >{key.displayKey}</button
         >
     </div>
 </main>
@@ -33,7 +33,7 @@
 
     .keyboardKey {
         font-size: 1rem;
-        font-weight: 700;
+        font-weight: 500;
         padding: 0.8rem;
         cursor: pointer;
         margin: auto;
@@ -46,7 +46,10 @@
         .keyboardKey {
             font-size: 0.75rem;
             padding: 1rem 0.4rem;
-            min-width: 1.5rem;
+            min-width: 1.6rem;
+        }
+        main {
+            margin: 0 3px;
         }
     }
 

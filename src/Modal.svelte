@@ -84,10 +84,12 @@
         align-items: center;
         justify-content: center;
     }
+
     #modal {
         position: relative;
         border-radius: 6px;
-        background: white;
+        background: var(--bg);
+        color: var(--white);
         border: 2px solid #000;
         filter: drop-shadow(5px 5px 5px #555);
         padding: 1em;
@@ -104,7 +106,7 @@
         width: 24px;
         height: 24px;
         cursor: pointer;
-        fill: #f44;
+        fill: var(--red);
         transition: transform 0.3s;
     }
 

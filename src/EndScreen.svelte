@@ -17,6 +17,29 @@
         if (posState === "Y") return String.fromCodePoint(0x1f7e8);
         if (posState === ".") return String.fromCodePoint(0x2b1b);
     };
+
+    function getEmojiState() {
+        let state = "Ordle \n\n";
+        session.guesses.forEach((guess) => {
+            state += convertWordState(guess.wordState) + "\n";
+        });
+
+        return state;
+    }
+
+    function insertToClipboard() {
+        const state = getEmojiState();
+        navigator.clipboard.writeText(state).then(
+            () => {
+                console.log("copied to clipboard");
+            },
+            () => {
+                console.log(
+                    "could not copy to clipboard, get a better browser"
+                );
+            }
+        );
+    }
 </script>
 
 <main>
@@ -26,15 +49,6 @@
         <p>Det tog dig {session.numberOfGuesses} gissningar.</p>
         <p>För att spela igen, tryck F5.</p>
         <br />
-        <h3>Dela satan</h3>
-        {#each session.guesses as guess}
-            <span class="result">{convertWordState(guess.wordState)}</span><br />
-        {/each}
+        <button on:click={insertToClipboard}> Dela satan </button>
     {/if}
 </main>
-
-<style>
- .result {
-     letter-spacing: 2px;
- }
-</style>
