@@ -3,6 +3,7 @@
 
     export let key: { key: string; displayKey: string; row: number };
     export let state;
+
     let status = "";
 
     const dispatch = createEventDispatcher();
@@ -41,6 +42,7 @@
         text-transform: uppercase;
         min-width: 3rem;
         border: none;
+        transition: all 0.2ms ease-out;
     }
 
     @media only screen and (max-width: 600px) {

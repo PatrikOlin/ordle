@@ -3,14 +3,8 @@
     import KeyboardKey from "./KeyboardKey.svelte";
     import { createEventDispatcher } from "svelte";
 
-    export let keyDown = null;
     export let keyState;
-    let pressed;
     const dispatch = createEventDispatcher();
-
-    $: if (keyDown && keyDown.toLowerCase() !== pressed) {
-        pressed = keyDown.toLowerCase();
-    }
 
     const handleEvent = (e) => {
         dispatch("keyClick", e.detail);

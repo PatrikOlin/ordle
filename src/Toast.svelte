@@ -5,7 +5,7 @@
     import { toast } from "./shared/toastStore";
 
     const visibleMs = 3000;
-    let visible;
+    let visible = false;
     let timeout;
 
     const onMsgChange = (msg, ms) => {
@@ -14,7 +14,11 @@
             visible = false;
         } else {
             visible = true;
-            if (ms > 0) timeout = setTimeout(() => (visible = false), ms);
+            if (ms > 0)
+                timeout = setTimeout(() => {
+                    visible = false;
+                    $toast = "";
+                }, ms);
         }
     };
 
@@ -27,10 +31,10 @@
     <div
         on:click={() => (visible = false)}
         transition:fly={{
-            delay: 250,
+            delay: 150,
             duration: 300,
             x: 0,
-            y: -100,
+            y: -200,
             opacity: 0.5,
         }}
     >
@@ -41,12 +45,11 @@
 <style>
     div {
         position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
         cursor: pointer;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-        margin-top: 0.25rem;
-        right: 0;
-        display: flex;
+        margin: auto;
+        margin-top: 2.75rem;
         align-items: center;
         border-radius: 0.2rem;
         background-color: #565656;
@@ -57,7 +60,9 @@
         z-index: 100;
         opacity: 95%;
     }
+
     div p {
+        margin: 0.75rem auto;
         color: var(--white);
     }
 </style>

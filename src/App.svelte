@@ -12,7 +12,6 @@
 
 	let guess: string;
 	let keys = [];
-	let keyDown;
 	let keyState = [];
 
 	onMount(async () => {
@@ -25,7 +24,12 @@
 
 	function submit() {
 		guessWord(guess)
-			.then((r) => r.json())
+			.then((r) => {
+				if (r.ok) return Promise.resolve(r.json());
+				return Promise.resolve(r.json()).then((res: any) => {
+					return Promise.reject(res.message);
+				});
+			})
 			.then((s) => {
 				if (s) {
 					$sessionStore = s;
@@ -37,7 +41,8 @@
 						$toast = getToastMsg(s.numberOfGuesses);
 					}
 				}
-			});
+			})
+			.catch((err) => ($toast = err));
 	}
 
 	function createKeystate({ word, wordState }) {
@@ -59,7 +64,6 @@
 	};
 
 	const onKeydown = (key: string) => {
-		keyDown = key;
 		if (key.toLowerCase() === "enter" && keys.length === 5) submit();
 		if (key.toLowerCase() === "backspace") {
 			keys.pop();
@@ -82,7 +86,7 @@
 	<Toast />
 	<h1>Ordle</h1>
 	<WordGrid {keys} />
-	<Keyboard {keyDown} {keyState} on:keyClick={handleKeyClick} />
+	<Keyboard {keyState} on:keyClick={handleKeyClick} />
 	<Modal><EndScreen /></Modal>
 </main>
 
