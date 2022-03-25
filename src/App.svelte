@@ -10,7 +10,6 @@
 	import { toast } from "./shared/toastStore";
 	import { sessionStore } from "./shared/sessionStore";
 
-	let session = null;
 	let guess: string;
 	let keys = [];
 	let keyDown;
@@ -20,7 +19,6 @@
 		getNewSession()
 			.then((r) => r.json())
 			.then((s) => {
-				session = s;
 				$sessionStore = s;
 			});
 	});
@@ -30,7 +28,6 @@
 			.then((r) => r.json())
 			.then((s) => {
 				if (s) {
-					session = s;
 					$sessionStore = s;
 					createKeystate(s.guesses[s.guesses.length - 1]);
 					guess = "";
@@ -85,7 +82,7 @@
 	<h1>Ordle</h1>
 	<WordGrid {keys} />
 	<Keyboard {keyDown} {keyState} on:keyClick={handleKeyClick} />
-	<Modal><EndScreen {session} /></Modal>
+	<Modal><EndScreen /></Modal>
 </main>
 
 <style>

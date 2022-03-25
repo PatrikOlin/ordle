@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let session;
+    import { sessionStore } from "./shared/sessionStore";
 
     const getHeading = (status) => {
         if (status === "unsolved") return "Du förlorade!";
@@ -20,7 +20,7 @@
 
     function getEmojiState() {
         let state = "Ordle \n\n";
-        session.guesses.forEach((guess) => {
+        $sessionStore.guesses.forEach((guess) => {
             state += convertWordState(guess.wordState) + "\n";
         });
 
@@ -43,10 +43,10 @@
 </script>
 
 <main>
-    {#if session}
-        <h2>{getHeading(session.status)}</h2>
-        <h3>Ordet var: <span>{session.word}</span></h3>
-        <p>Det tog dig {session.numberOfGuesses} gissningar.</p>
+    {#if $sessionStore}
+        <h2>{getHeading($sessionStore.status)}</h2>
+        <h3>Ordet var: <span>{$sessionStore.word}</span></h3>
+        <p>Det tog dig {$sessionStore.numberOfGuesses} gissningar.</p>
         <p>För att spela igen, tryck F5.</p>
         <br />
         <button on:click={insertToClipboard}> Dela satan </button>
