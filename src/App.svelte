@@ -47,6 +47,7 @@
 			return {
 				key: key,
 				value: wordState[i],
+				row: $sessionStore.numberOfGuesses,
 			};
 		});
 	}

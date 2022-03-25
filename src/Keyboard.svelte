@@ -22,7 +22,6 @@
         {#each keys.filter((key) => key.row === 0) as key, i}
             <KeyboardKey
                 {key}
-                {pressed}
                 on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
@@ -32,7 +31,6 @@
         {#each keys.filter((key) => key.row === 1) as key, i}
             <KeyboardKey
                 {key}
-                {pressed}
                 on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
@@ -42,7 +40,6 @@
         {#each keys.filter((key) => key.row === 2) as key, i}
             <KeyboardKey
                 {key}
-                {pressed}
                 on:keyClick={handleEvent}
                 state={keyState.find((ks) => ks.key === key.key)}
             />
