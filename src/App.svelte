@@ -6,6 +6,9 @@
 	import Keyboard from "./Keyboard.svelte";
 	import EndScreen from "./EndScreen.svelte";
 	import Modal, { getModal } from "./Modal.svelte";
+	import Toast from "./Toast.svelte";
+	import { toast } from "./shared/toastStore";
+	import { sessionStore } from "./shared/sessionStore";
 
 	let session = null;
 	let wordStates: string[] = [];
@@ -20,21 +23,24 @@
 			.then((r) => r.json())
 			.then((s) => {
 				session = s;
+				$sessionStore = s;
 				console.log(s);
 			});
 	});
 
 	function submit() {
-		guessWord(guess, session.id)
+		guessWord(guess)
 			.then((r) => r.json())
 			.then((s) => {
 				if (s) {
 					session = s;
+					$sessionStore = s;
 					createKeystate(s.guesses[s.guesses.length - 1]);
 					guess = "";
 					keys = [];
 					if (s.status === "solved" || s.numberOfGuesses === 6) {
 						getModal().open();
+						$toast = getToastMsg(s.numberOfGuesses);
 					}
 				}
 			});
@@ -50,6 +56,12 @@
 			};
 		});
 	}
+
+	const getToastMsg = (numOfGuesses: number): string => {
+		if (numOfGuesses === 6) return "Dåligt!";
+		if (numOfGuesses === 5) return "Svagt!";
+		if (numOfGuesses < 5) return "Genialt!";
+	};
 
 	const onKeydown = (key: string) => {
 		keyDown = key;
@@ -72,8 +84,9 @@
 <Keydown on:key={({ detail }) => onKeydown(detail)} />
 
 <main>
+	<Toast />
 	<h1>Ordle</h1>
-	<WordGrid {session} {keys} />
+	<WordGrid {keys} />
 	<Keyboard {keyDown} {keyState} on:keyClick={handleKeyClick} />
 	<Modal><EndScreen {session} /></Modal>
 </main>
