@@ -1,40 +1,51 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { getNewSession, guessWord } from "./shared/api";
+	import { getSession, guessWord } from "./shared/api";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
 	import Keyboard from "./Keyboard.svelte";
 	import EndScreen from "./EndScreen.svelte";
 	import Modal, { getModal } from "./Modal.svelte";
+	import Toast from "./Toast.svelte";
+	import { toast } from "./shared/toastStore";
+	import { sessionStore } from "./shared/sessionStore";
 
-	let session = null;
 	let guess: string;
 	let keys = [];
-	let keyDown;
 	let keyState = [];
 
 	onMount(async () => {
-		getNewSession()
+		getSession()
 			.then((r) => r.json())
 			.then((s) => {
-				session = s;
+				if (!s.guesses) s.guesses = [];
+				$sessionStore = s;
 			});
 	});
 
 	function submit() {
-		guessWord(guess, session.id)
-			.then((r) => r.json())
+		guessWord(guess)
+			.then((r) => {
+				if (r.ok) return Promise.resolve(r.json());
+				return Promise.resolve(r.json()).then((res: any) => {
+					return Promise.reject(res.message);
+				});
+			})
 			.then((s) => {
 				if (s) {
-					session = s;
-					createKeystate(s.guesses[s.guesses.length - 1]);
+					$sessionStore = s;
+					if (s.guesses) {
+						createKeystate(s.guesses[s.guesses.length - 1]);
+					}
 					guess = "";
 					keys = [];
 					if (s.status === "solved" || s.numberOfGuesses === 6) {
 						getModal().open();
+						$toast = getToastMsg(s.numberOfGuesses);
 					}
 				}
-			});
+			})
+			.catch((err) => ($toast = err));
 	}
 
 	function createKeystate({ word, wordState }) {
@@ -44,12 +55,21 @@
 			return {
 				key: key,
 				value: wordState[i],
+				row: $sessionStore.numberOfGuesses,
 			};
 		});
 	}
 
+	const getToastMsg = (numOfGuesses: number): string => {
+		if (numOfGuesses === 6) return "Piuuh!";
+		if (numOfGuesses === 5) return "Vinst!";
+		if (numOfGuesses === 4) return "Bravo!";
+		if (numOfGuesses === 3) return "Kanon!";
+		if (numOfGuesses === 2) return "Smart!";
+		if (numOfGuesses === 1) return "Super!";
+	};
+
 	const onKeydown = (key: string) => {
-		keyDown = key;
 		if (key.toLowerCase() === "enter" && keys.length === 5) submit();
 		if (key.toLowerCase() === "backspace") {
 			keys.pop();
@@ -69,10 +89,11 @@
 <Keydown on:key={({ detail }) => onKeydown(detail)} />
 
 <main>
+	<Toast />
 	<h1>Ordle</h1>
-	<WordGrid {session} {keys} />
-	<Keyboard {keyDown} {keyState} on:keyClick={handleKeyClick} />
-	<Modal><EndScreen {session} /></Modal>
+	<WordGrid {keys} />
+	<Keyboard {keyState} on:keyClick={handleKeyClick} />
+	<Modal><EndScreen /></Modal>
 </main>
 
 <style>

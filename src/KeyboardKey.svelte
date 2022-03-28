@@ -2,15 +2,17 @@
     import { createEventDispatcher } from "svelte";
 
     export let key: { key: string; displayKey: string; row: number };
-    export let pressed;
     export let state;
+
+    let status = "";
 
     const dispatch = createEventDispatcher();
 
-    function getColor({ value }): string {
-        if (value === ".") return "wrong";
-        if (value === "Y") return "correctish";
-        if (value === "G") return "correct";
+    function setStatus({ value }): string {
+        if (value === "G") return (status = "correct");
+        if (status) return status;
+        if (value === "Y") return (status = "correctish");
+        if (value === ".") return (status = "wrong");
     }
 
     const handleClick = () => {
@@ -19,8 +21,8 @@
 </script>
 
 <main on:click={handleClick}>
-    <div class:pressed={pressed === key.key}>
-        <button class="keyboardKey {state ? getColor(state) : ''} "
+    <div>
+        <button class="keyboardKey {state ? setStatus(state) : status} "
             >{key.displayKey}</button
         >
     </div>
@@ -40,6 +42,7 @@
         text-transform: uppercase;
         min-width: 3rem;
         border: none;
+        transition: all 0.2ms ease-out;
     }
 
     @media only screen and (max-width: 600px) {
@@ -53,7 +56,7 @@
         }
     }
 
-    .pressed button {
-        background-color: #3a3a3c;
-    }
+    /* .pressed button {
+    background-color: #3a3a3c;
+    } */
 </style>
