@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { getNewSession, guessWord } from "./shared/api";
+	import { getSession, guessWord } from "./shared/api";
 	import Keydown from "svelte-keydown";
 	import WordGrid from "./WordGrid.svelte";
 	import Keyboard from "./Keyboard.svelte";
@@ -15,9 +15,10 @@
 	let keyState = [];
 
 	onMount(async () => {
-		getNewSession()
+		getSession()
 			.then((r) => r.json())
 			.then((s) => {
+				if (!s.guesses) s.guesses = [];
 				$sessionStore = s;
 			});
 	});
@@ -33,7 +34,9 @@
 			.then((s) => {
 				if (s) {
 					$sessionStore = s;
-					createKeystate(s.guesses[s.guesses.length - 1]);
+					if (s.guesses) {
+						createKeystate(s.guesses[s.guesses.length - 1]);
+					}
 					guess = "";
 					keys = [];
 					if (s.status === "solved" || s.numberOfGuesses === 6) {
@@ -58,9 +61,12 @@
 	}
 
 	const getToastMsg = (numOfGuesses: number): string => {
-		if (numOfGuesses === 6) return "Dåligt!";
-		if (numOfGuesses === 5) return "Svagt!";
-		if (numOfGuesses < 5) return "Genialt!";
+		if (numOfGuesses === 6) return "Piuuh!";
+		if (numOfGuesses === 5) return "Vinst!";
+		if (numOfGuesses === 4) return "Bravo!";
+		if (numOfGuesses === 3) return "Kanon!";
+		if (numOfGuesses === 2) return "Smart!";
+		if (numOfGuesses === 1) return "Super!";
 	};
 
 	const onKeydown = (key: string) => {

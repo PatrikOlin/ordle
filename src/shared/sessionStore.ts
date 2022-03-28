@@ -12,6 +12,7 @@ const initialSession = {
   guesses: [],
   numberOfGuesses: 0,
   status: "unsolved",
+  stats: null,
 };
 
 export const sessionStore = writable(initialSession);
@@ -19,4 +20,9 @@ export const sessionStore = writable(initialSession);
 export const sessionID = derived(
   sessionStore,
   ($sessionStore) => $sessionStore.id
+);
+
+export const stats = derived(
+  sessionStore,
+  ($sessionStore) => $sessionStore.stats
 );
