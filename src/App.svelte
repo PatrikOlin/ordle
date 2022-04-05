@@ -8,7 +8,7 @@
 	import Modal, { getModal } from "./Modal.svelte";
 	import Toast from "./Toast.svelte";
 	import { toast } from "./shared/toastStore";
-	import { sessionStore } from "./shared/sessionStore";
+	import { sessionStore, isDaily } from "./shared/sessionStore";
 
 	let guess: string;
 	let keys = [];
@@ -89,6 +89,11 @@
 <Keydown on:key={({ detail }) => onKeydown(detail)} />
 
 <main>
+	{#if $isDaily}
+		<div class="topleft">daily</div>
+	{:else}
+		<div class="topleft">endless</div>
+	{/if}
 	<Toast />
 	<h1>Ordle</h1>
 	<WordGrid {keys} />
@@ -118,6 +123,13 @@
 
 	#modal {
 		background-color: var(--bg);
+	}
+
+	.topleft {
+		position: absolute;
+		left: 4;
+		top: 2;
+		color: var(--white);
 	}
 
 	h1 {

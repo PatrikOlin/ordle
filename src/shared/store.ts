@@ -1,5 +1,5 @@
 import { get, writable, derived } from "svelte/store";
-import { getNewSession, guessWord } from "../shared/api";
+import { guessWord } from "../shared/api";
 
 const initialState = {
   session: null,
@@ -26,7 +26,7 @@ function createState() {
     guessWord: async (guess) => {
       update((state) => (state = { ...state, isLoading: true }));
       try {
-        const res = await guessWord(guess, null);
+        const res = await guessWord(guess);
         update((state) => (state = { ...state, session: res }));
       } catch (e) {
         alert(e);

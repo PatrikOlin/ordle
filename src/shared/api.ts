@@ -1,7 +1,8 @@
 import { sessionID } from "./sessionStore";
 import { get } from "svelte/store";
 
-const baseURL = "http://localhost:4040";
+// const baseURL = "http://localhost:4040";
+const baseURL = "https://gordle.olin.dev";
 
 export async function getSession() {
   const url = `${baseURL}/session`;

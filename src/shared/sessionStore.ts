@@ -13,6 +13,7 @@ const initialSession = {
   numberOfGuesses: 0,
   status: "unsolved",
   stats: null,
+  isDaily: false,
 };
 
 export const sessionStore = writable(initialSession);
@@ -25,4 +26,9 @@ export const sessionID = derived(
 export const stats = derived(
   sessionStore,
   ($sessionStore) => $sessionStore.stats
+);
+
+export const isDaily = derived(
+  sessionStore,
+  ($sessionStore) => $sessionStore.isDaily
 );
